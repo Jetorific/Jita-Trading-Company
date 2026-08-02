@@ -51,5 +51,3 @@ def set_autopilot_waypoint(destination, vars, add_to_beginning="false", clear_ot
     }
 
     response = requests.post(url, headers=headers, params=querystring)
-
-    return response.json()

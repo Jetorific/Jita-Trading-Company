@@ -13,7 +13,7 @@ def read_auth_token():
 
 def save_market_data(data):
     with open("market_data.json","w") as f:
-        f.write(json.dumps(data))
+        json.dump(data, f, indent=2)
 
 
 url = "https://esi.evetech.net/markets/prices"
@@ -29,5 +29,5 @@ headers = {
 
 response = requests.get(url, headers=headers)
 
-save_market_data(response.json)
+save_market_data(response.json())
 
