@@ -12,7 +12,7 @@ def read_auth_token():
     return auth_tok
 
 def save_market_data(data):
-    with open("market_data.json","w") as f:
+    with open("src/data/market_data.json", "w") as f:
         json.dump(data, f, indent=2)
 
 

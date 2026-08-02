@@ -1,3 +1,4 @@
 player_id
 auth.tok
 __pycache__
+data/*
