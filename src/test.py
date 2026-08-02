@@ -11,12 +11,15 @@ def read_auth_token():
     return auth_tok
 
 def main():
-    vars = {
+    esi = ESIHelper({
         "auth_token" : read_auth_token(),
         "player_id" : read_player_id(),
         "compatibility_date" : "2026-07-21"
-    }
+    })
 
+    print(esi.names_to_ids("Sirppala"))
+
+    return
     print(get_wallet_balance(vars))
     set_autopilot_waypoint("30002801", vars, clear_other_waypoints="true")
 
