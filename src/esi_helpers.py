@@ -129,3 +129,20 @@ class ESIHelper:
         }
 
         response = requests.post(url, headers=headers, params=querystring)
+
+    def get_current_location(self, char_id):
+        url = f"https://esi.evetech.net/characters/{char_id}/location"
+
+        headers = {
+            "Accept-Language": "en",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json",
+            "Authorization": self.vars["auth_token"]
+        }
+
+        response = requests.get(url, headers=headers)
+
+        return response.json()
