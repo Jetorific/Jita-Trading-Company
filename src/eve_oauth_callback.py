@@ -9,12 +9,13 @@ class OAuthState:
         self.state: Optional[str] = None
         self.done: bool = False
 
+# 1. Subclass HTTPServer to formally declare the attribute for Pylance
+class OAuthHTTPServer(HTTPServer):
+    oauth_state: OAuthState
 
 class CallbackHandler(BaseHTTPRequestHandler):
-    oauth_state: OAuthState = OAuthState()
-
     def log_message(self, format, *args):
-        pass  # silence logs
+        pass
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
@@ -32,19 +33,20 @@ class CallbackHandler(BaseHTTPRequestHandler):
         code = code_list[0]
         state = state_list[0]
 
-        # Verify state
-        if state != self.oauth_state.expected_state:
+        # 2. Access the state via self.server
+        # We use a cast or just ignore the type warning on self.server for strict checkers
+        server = self.server  # type: OAuthHTTPServer
+        
+        if state != server.oauth_state.expected_state:
             self.send_response(400)
             self.end_headers()
             self.wfile.write(b"Invalid state")
             return
 
-        # Store results
-        self.oauth_state.code = code
-        self.oauth_state.state = state
-        self.oauth_state.done = True
+        server.oauth_state.code = code
+        server.oauth_state.state = state
+        server.oauth_state.done = True
 
-        # Respond to browser
         self.send_response(200)
         self.send_header("Content-type", "text/plain")
         self.end_headers()

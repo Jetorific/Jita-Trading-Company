@@ -3,6 +3,8 @@ import webbrowser
 import requests
 import base64
 import json
+import time
+from datetime import datetime
 
 from eve_oauth_callback import *
 
@@ -53,7 +55,6 @@ def exchange_code_for_tokens(code: str) -> dict:
     resp.raise_for_status()
     return resp.json()
 
-
 def run_oauth_flow():
     oauth_state = OAuthState()
 
@@ -66,32 +67,24 @@ def run_oauth_flow():
     print("Opening browser for EVE login...")
     webbrowser.open(auth_url)
 
-    # Start local server
-    server = HTTPServer(("localhost", 8080), CallbackHandler)
-    # Give the handler access to the shared state
-    # We do this by setting the attribute on each new handler instance via a factory
+    server = OAuthHTTPServer(("localhost", 8080), CallbackHandler)
+    server.oauth_state = oauth_state  # Set it on the server before starting
 
-    def handler_factory(*args, **kwargs):
-        handler = CallbackHandler(*args, **kwargs)
-        handler.oauth_state = oauth_state
-        return handler
-
-    server = HTTPServer(("localhost", 8080), handler_factory)
 
     # Wait until callback sets done=True
-    import time
     while not oauth_state.done:
         server.handle_request()
-        time.sleep(0.01)  # small sleep to avoid busy-spin
+        time.sleep(0.01)
 
     code = oauth_state.code
     if code is None:
         raise RuntimeError("Authorization code is still None after callback")
 
     tokens = exchange_code_for_tokens(code)
+    tokens['date_issued'] = datetime.now().isoformat()
     with open("auth_tokens.json", "w") as f:
-        json.dump(tokens, f, indent=2)
-
+            json.dump(tokens, f, indent=2)
+    
     print("\n=== Tokens ===")
     print("Access token: ", tokens["access_token"])
     print("Refresh token:", tokens["refresh_token"])
