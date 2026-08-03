@@ -23,7 +23,7 @@ class ESIHelper:
         else:
             names = list(names)
         response = requests.post(url, json=names, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Get names and categories for each id in a list
@@ -45,7 +45,7 @@ class ESIHelper:
         }
 
         response = requests.post(url, json=ids, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Get info about a region
@@ -62,7 +62,7 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     def get_stargate_info(self, stargate_id):
@@ -78,7 +78,7 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Get info about a system
@@ -95,7 +95,7 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Get info about a station
@@ -112,7 +112,7 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Get balance of current player
@@ -130,7 +130,7 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Get location of current player, either region, system, or station
@@ -148,7 +148,7 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
     # Set autopilot waypoint to destination
@@ -169,3 +169,4 @@ class ESIHelper:
         }
 
         response = requests.post(url, headers=headers, params=querystring)
+        response.raise_for_status()
