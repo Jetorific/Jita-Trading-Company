@@ -4,6 +4,7 @@ class ESIHelper:
     def __init__(self, vars):
         self.vars = vars
 
+    # Get ids for each name in a list
     def names_to_ids(self, names):
         url = "https://esi.evetech.net/universe/ids"
 
@@ -25,6 +26,7 @@ class ESIHelper:
 
         return response.json()
 
+    # Get names and categories for each id in a list
     def id_info(self, ids):
         url = "https://esi.evetech.net/universe/names"
 
@@ -46,6 +48,24 @@ class ESIHelper:
 
         return response.json()
 
+    # Get info about a region
+    def get_region_info(self, region_id):
+        url = f"https://esi.evetech.net/universe/regions/{region_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+
+        return response.json()
+
+    # Get info about a system
     def get_solar_system_info(self, system_id):
         url = f"https://esi.evetech.net/universe/systems/{system_id}"
 
@@ -62,6 +82,7 @@ class ESIHelper:
 
         return response.json()
 
+    # Get info about a station
     def get_station_info(self, station_id):
         url = f"https://esi.evetech.net/universe/stations/{station_id}"
 
@@ -78,6 +99,7 @@ class ESIHelper:
 
         return response.json()
 
+    # Get balance of current player
     def get_wallet_balance(self):
         url = f"https://esi.evetech.net/characters/{self.vars['player_id']}/wallet"
 
@@ -95,6 +117,7 @@ class ESIHelper:
 
         return response.json()
 
+    # Get location of current player, either region, system, or station
     def get_character_location(self):
         url = "https://esi.evetech.net/characters/2124597207/location"
 
@@ -112,6 +135,7 @@ class ESIHelper:
 
         return response.json()
 
+    # Set autopilot waypoint to destination
     def set_autopilot_waypoint(self, destination, add_to_beginning="false", clear_other_waypoints="false"):
         url = "https://esi.evetech.net/ui/autopilot/waypoint"
 
