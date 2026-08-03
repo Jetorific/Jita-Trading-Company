@@ -1,8 +1,6 @@
 import requests
 
 class ESIHelper:
-    vars = None
-
     def __init__(self, vars):
         self.vars = vars
 
@@ -24,6 +22,59 @@ class ESIHelper:
         else:
             names = list(names)
         response = requests.post(url, json=names, headers=headers)
+
+        return response.json()
+
+    def id_info(self, ids):
+        url = "https://esi.evetech.net/universe/names"
+
+        if isinstance(ids, str) or isinstance(ids, int):
+            ids = [ids]
+        else:
+            ids = list(ids)
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+
+        response = requests.post(url, json=ids, headers=headers)
+
+        return response.json()
+
+    def get_solar_system_info(self, system_id):
+        url = f"https://esi.evetech.net/universe/systems/{system_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars['compatibility_date'],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+
+        return response.json()
+
+    def get_station_info(self, station_id):
+        url = f"https://esi.evetech.net/universe/stations/{station_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars['compatibility_date'],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
 
         return response.json()
 
