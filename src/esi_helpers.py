@@ -65,6 +65,22 @@ class ESIHelper:
 
         return response.json()
 
+    def get_stargate_info(self, stargate_id):
+        url = f"https://esi.evetech.net/universe/stargates/{stargate_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+
+        return response.json()
+
     # Get info about a system
     def get_solar_system_info(self, system_id):
         url = f"https://esi.evetech.net/universe/systems/{system_id}"
