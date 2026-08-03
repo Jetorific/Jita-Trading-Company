@@ -5,7 +5,7 @@ class ESIHelper:
         self.vars = vars
 
     # Get ids for each name in a list
-    def names_to_ids(self, names):
+    def names_to_ids(self, names: str | list) -> dict:
         url = "https://esi.evetech.net/universe/ids"
 
         headers = {
@@ -27,7 +27,7 @@ class ESIHelper:
         return response.json()
 
     # Get names and categories for each id in a list
-    def id_info(self, ids):
+    def id_info(self, ids: int | str | list[int | str]) -> dict:
         url = "https://esi.evetech.net/universe/names"
 
         if isinstance(ids, str) or isinstance(ids, int):
@@ -49,7 +49,7 @@ class ESIHelper:
         return response.json()
 
     # Get info about a region
-    def get_region_info(self, region_id):
+    def get_region_info(self, region_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/regions/{region_id}"
 
         headers = {
@@ -65,7 +65,7 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
-    def get_stargate_info(self, stargate_id):
+    def get_stargate_info(self, stargate_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/stargates/{stargate_id}"
 
         headers = {
@@ -82,7 +82,7 @@ class ESIHelper:
         return response.json()
 
     # Get info about a system
-    def get_solar_system_info(self, system_id):
+    def get_solar_system_info(self, system_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/systems/{system_id}"
 
         headers = {
@@ -99,7 +99,7 @@ class ESIHelper:
         return response.json()
 
     # Get info about a station
-    def get_station_info(self, station_id):
+    def get_station_info(self, station_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/stations/{station_id}"
 
         headers = {
@@ -116,7 +116,7 @@ class ESIHelper:
         return response.json()
 
     # Get balance of current player
-    def get_wallet_balance(self):
+    def get_wallet_balance(self) -> dict:
         url = f"https://esi.evetech.net/characters/{self.vars['player_id']}/wallet"
 
         headers = {
@@ -134,7 +134,7 @@ class ESIHelper:
         return response.json()
 
     # Get location of current player, either region, system, or station
-    def get_character_location(self):
+    def get_character_location(self) -> dict:
         url = "https://esi.evetech.net/characters/2124597207/location"
 
         headers = {
@@ -152,7 +152,7 @@ class ESIHelper:
         return response.json()
 
     # Set autopilot waypoint to destination
-    def set_autopilot_waypoint(self, destination, add_to_beginning="false", clear_other_waypoints="false"):
+    def set_autopilot_waypoint(self, destination: int | str, add_to_beginning="false", clear_other_waypoints="false") -> dict:
         url = "https://esi.evetech.net/ui/autopilot/waypoint"
 
         querystring = {"add_to_beginning":add_to_beginning,"clear_other_waypoints":clear_other_waypoints, "destination_id":destination}

@@ -2,4 +2,5 @@ player_id
 auth.tok
 __pycache__
 data/*
-client_secret
+config.json
+auth_tokens.json
