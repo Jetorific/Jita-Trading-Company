@@ -133,24 +133,6 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
-    # Get location of current player, either region, system, or station
-    def get_character_location(self) -> dict:
-        url = "https://esi.evetech.net/characters/2124597207/location"
-
-        headers = {
-            "Accept-Language": "",
-            "If-None-Match": "",
-            "X-Compatibility-Date": self.vars["compatibility_date"],
-            "X-Tenant": "",
-            "If-Modified-Since": "",
-            "Accept": "application/json",
-            "Authorization": self.vars["auth_token"]
-        }
-
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        return response.json()
-
     # Set autopilot waypoint to destination
     def set_autopilot_waypoint(self, destination: int | str, add_to_beginning="false", clear_other_waypoints="false") -> dict:
         url = "https://esi.evetech.net/ui/autopilot/waypoint"
@@ -169,9 +151,11 @@ class ESIHelper:
         }
 
         response = requests.post(url, headers=headers, params=querystring)
+        response.raise_for_status()
 
-    def get_current_location(self, char_id):
-        url = f"https://esi.evetech.net/characters/{char_id}/location"
+    # Get location of current player, either region, system, or station
+    def get_current_location(self):
+        url = f"https://esi.evetech.net/characters/{self.vars['player_id']}/location"
 
         headers = {
             "Accept-Language": "en",
@@ -184,5 +168,5 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
