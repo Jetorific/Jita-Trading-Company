@@ -1,17 +1,17 @@
 from esi_helpers import *
 from gui_tools import *
 
-def read_player_id():
+def read_player_id() -> str:
     with open("player_id", "r") as f:
         player_id = f.read()
     return player_id
 
-def read_auth_token():
+def read_auth_token() -> str:
     with open("auth.tok", "r") as f:
         auth_tok = f.read()
     return auth_tok
 
-def main():
+def main() -> None:
     esi = ESIHelper({
         "auth_token" : read_auth_token(),
         "player_id" : read_player_id(),
