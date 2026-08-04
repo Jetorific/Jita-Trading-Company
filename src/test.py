@@ -1,5 +1,5 @@
 from esi_helpers import *
-from gui_tools import *
+# from gui_tools import *
 
 def read_player_id() -> str:
     with open("player_id", "r") as f:
@@ -18,11 +18,12 @@ def main() -> None:
         "compatibility_date" : "2026-07-21"
     })
 
-    system_id = esi.names_to_ids("Jita")['systems'][0]['id']
-    esi.set_autopilot_waypoint(system_id, clear_other_waypoints="true")
-    alt_tab()
-    gui_autopilot()
-    alt_tab()
+    print(esi.get_wallet_balance())
+    # system_id = esi.names_to_ids("Jita")['systems'][0]['id']
+    # esi.set_autopilot_waypoint(system_id, clear_other_waypoints="true")
+    # alt_tab()
+    # gui_autopilot()
+    # alt_tab()
 
 if __name__ == "__main__":
     main()
