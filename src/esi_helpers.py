@@ -172,3 +172,19 @@ class ESIHelper:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
         return response.json()
+
+    def get_market_prices(self) -> dict:
+        url = "https://esi.evetech.net/markets/prices"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+
+        return response.json()

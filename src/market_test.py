@@ -1,49 +1,29 @@
-import requests
+from esi_helpers import *
 import json
-# need requests for making ESI API calls
+
+# need esi_helpers to get market data
 # need json to save market data to file
 
-
-def read_player_id():
+def read_player_id() -> str:
     with open("player_id", "r") as f:
         player_id = f.read()
     return player_id
 
-'''
-pulls player id from file in same directory
-can be found in game as part of the url copied by right clicking your character name
-'''
-
-def read_auth_token():
-    with open("auth.tok", "r") as f:
-        auth_tok = f.read()
-    return auth_tok
-
-'''
-PLEASE FOR THE LOVE OF GOD REMEMBER TO MAKE THIS USE OAUTH
-WE CANNOT BE RE-VERIFYING EVERY 20 MINUTES
-'''
-
-def save_market_data(data):
-    with open("src/data/market_data.json", "w") as f:
+# Parses json return and writes to file, probably need to do more post processing later
+def save_market_prices(data, path):
+    with open(path, "w") as f:
         json.dump(data, f, indent=2)
 
-# Parses json return and writes to file, probably need to do more post processing later
+MARKET_PRICES_FILE = "src/data/market_data.json"
 
-url = "https://esi.evetech.net/markets/prices"
+def main() -> None:
+    esi = ESIHelper({
+        "player_id" : read_player_id(),
+        "compatibility_date" : "2026-07-21"
+    })
 
-headers = {
-    "Accept-Language": "en",
-    "If-None-Match": "",
-    "X-Compatibility-Date": "2026-07-21",
-    "X-Tenant": "",
-    "If-Modified-Since": "",
-    "Accept": "application/json"
-}
+    save_market_prices(esi.get_market_prices(), MARKET_PRICES_FILE)
+    print(f"Saved market prices to {MARKET_PRICES_FILE}")
 
-# Check the X-Compatability-Date, might need to be updated if script isn't working
-
-response = requests.get(url, headers=headers)
-
-save_market_data(response.json())
-
+if __name__ == "__main__":
+    main()
