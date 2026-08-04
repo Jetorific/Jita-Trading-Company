@@ -1,10 +1,11 @@
+import os
 import secrets
 import webbrowser
 import requests
 import base64
 import json
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import urllib.parse
@@ -44,7 +45,7 @@ class CallbackHandler(BaseHTTPRequestHandler):
         # 2. Access the state via self.server
         # We use a cast or just ignore the type warning on self.server for strict checkers
         server = self.server  # type: OAuthHTTPServer
-        
+
         if state != server.oauth_state.expected_state:
             self.send_response(400)
             self.end_headers()
@@ -73,7 +74,7 @@ SCOPES = config["scopes"]
 
 AUTH_URL = "https://login.eveonline.com/v2/oauth/authorize"
 TOKEN_URL = "https://login.eveonline.com/v2/oauth/token"
-
+TOKENS_FILE = "auth_tokens.json"
 
 def build_auth_url(state: str) -> str:
     params = {
@@ -85,7 +86,6 @@ def build_auth_url(state: str) -> str:
     }
     query = urllib.parse.urlencode(params)
     return f"{AUTH_URL}?{query}"
-
 
 def exchange_code_for_tokens(code: str) -> dict:
     credentials = f"{CLIENT_ID}:{CLIENT_SECRET}".encode("utf-8")
@@ -102,12 +102,77 @@ def exchange_code_for_tokens(code: str) -> dict:
     }
 
     resp = requests.post(TOKEN_URL, headers=headers, data=data)
-    print("Token endpoint status:", resp.status_code)
-    print("Token endpoint response:", resp.text)
+    print("Exchange endpoint status:", resp.status_code)
+    if not resp.ok:
+        print("Exchange endpoint response:", resp.text)
     resp.raise_for_status()
     return resp.json()
 
+def refresh_access_token(refresh_token: str) -> dict:
+    """Uses an existing refresh_token to obtain a new access_token."""
+    credentials = f"{CLIENT_ID}:{CLIENT_SECRET}".encode("utf-8")
+    basic_auth = base64.b64encode(credentials).decode("utf-8")
+
+    headers = {
+        "Authorization": f"Basic {basic_auth}",
+        "Content-Type": "application/x-www-form-urlencoded",
+    }
+
+    data = {
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token,
+    }
+
+    resp = requests.post(TOKEN_URL, headers=headers, data=data)
+    print("Refresh endpoint status:", resp.status_code)
+    if not resp.ok:
+        print("Refresh endpoint response:", resp.text)
+    resp.raise_for_status()
+    return resp.json()
+
+def save_tokens(tokens: dict):
+    """Adds the current time to the token dict and saves it to disk."""
+    tokens['date_issued'] = datetime.now().isoformat()
+    with open(TOKENS_FILE, "w", encoding="utf-8") as f:
+        json.dump(tokens, f, indent=2)
+
+def is_token_expired(date_issued_iso: str, expires_in: int, buffer_seconds: int = 60) -> bool:
+    """Checks if the token is expired or about to expire within the buffer."""
+    date_issued = datetime.fromisoformat(date_issued_iso)
+    # Give a small buffer so we don't return a token that expires in 1 second
+    expiration_time = date_issued + timedelta(seconds=expires_in - buffer_seconds)
+    return datetime.now() >= expiration_time
+
 def run_oauth_flow():
+    # 1. Check if we already have tokens saved
+    if os.path.exists(TOKENS_FILE):
+        try:
+            with open(TOKENS_FILE, "r", encoding="utf-8") as f:
+                saved_tokens = json.load(f)
+            
+            # Extract data from the saved file
+            access_token = saved_tokens.get("access_token")
+            refresh_token = saved_tokens.get("refresh_token")
+            expires_in = saved_tokens.get("expires_in", 0)
+            date_issued = saved_tokens.get("date_issued")
+
+            if access_token and refresh_token and date_issued:
+                if not is_token_expired(date_issued, expires_in):
+                    print("Found valid, unexpired token. Reusing existing token.")
+                    return saved_tokens
+                else:
+                    print("Token expired. Using refresh_token to get a new one...")
+                    try:
+                        new_tokens = refresh_access_token(refresh_token)
+                        save_tokens(new_tokens)
+                        return new_tokens
+                    except requests.exceptions.RequestException as e:
+                        print("Failed to refresh token. Falling back to full login flow...", e)
+        except (json.JSONDecodeError, ValueError) as e:
+            print("Could not read existing tokens properly. Falling back to full login flow...")
+
+    # 2. If no valid token or refresh failed, do the full browser flow
+    print("No valid tokens found. Initiating browser login...")
     oauth_state = OAuthState()
 
     # Generate state
@@ -116,12 +181,10 @@ def run_oauth_flow():
 
     # Build and open authorize URL
     auth_url = build_auth_url(state)
-    print("Opening browser for EVE login...")
     webbrowser.open(auth_url)
 
     server = OAuthHTTPServer(("localhost", 8080), CallbackHandler)
     server.oauth_state = oauth_state  # Set it on the server before starting
-
 
     # Wait until callback sets done=True
     while not oauth_state.done:
@@ -133,16 +196,13 @@ def run_oauth_flow():
         raise RuntimeError("Authorization code is still None after callback")
 
     tokens = exchange_code_for_tokens(code)
-    tokens['date_issued'] = datetime.now().isoformat()
-    with open("auth_tokens.json", "w") as f:
-            json.dump(tokens, f, indent=2)
-    
+    save_tokens(tokens)
+
     print("\n=== Tokens ===")
-    print("Access token: ", tokens["access_token"])
-    print("Refresh token:", tokens["refresh_token"])
+    print("Access token: ", tokens["access_token"][:15] + "...")
+    print("Refresh token:", tokens["refresh_token"][:15] + "...")
     print("Expires in:   ", tokens["expires_in"])
     return tokens
-
 
 if __name__ == "__main__":
     run_oauth_flow()

@@ -1,8 +1,10 @@
 import requests
+import eve_oauth
 
 class ESIHelper:
     def __init__(self, vars):
         self.vars = vars
+        self.tokens = eve_oauth.run_oauth_flow()
 
     # Get ids for each name in a list
     def names_to_ids(self, names: str | list) -> dict:
@@ -126,7 +128,7 @@ class ESIHelper:
             "X-Tenant": "",
             "If-Modified-Since": "",
             "Accept": "application/json",
-            "Authorization": self.vars["auth_token"]
+            "Authorization": f"Bearer {self.tokens['access_token']}"
         }
 
         response = requests.get(url, headers=headers)
@@ -147,7 +149,7 @@ class ESIHelper:
             "If-Modified-Since": "",
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": self.vars["auth_token"]
+            "Authorization": f"Bearer {self.tokens['access_token']}"
         }
 
         response = requests.post(url, headers=headers, params=querystring)
@@ -164,7 +166,7 @@ class ESIHelper:
             "X-Tenant": "",
             "If-Modified-Since": "",
             "Accept": "application/json",
-            "Authorization": self.vars["auth_token"]
+            "Authorization": f"Bearer {self.tokens['access_token']}"
         }
 
         response = requests.get(url, headers=headers)
