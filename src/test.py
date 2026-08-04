@@ -6,14 +6,8 @@ def read_player_id() -> str:
         player_id = f.read()
     return player_id
 
-def read_auth_token() -> str:
-    with open("auth.tok", "r") as f:
-        auth_tok = f.read()
-    return auth_tok
-
 def main() -> None:
     esi = ESIHelper({
-        "auth_token" : read_auth_token(),
         "player_id" : read_player_id(),
         "compatibility_date" : "2026-07-21"
     })
