@@ -1,6 +1,6 @@
 import csv
 
-with open("~/Jita-Trading-Company/src/eve_item_type_ID.txt","r") as f:
+with open("~/Jita-Trading-Company/src/data/eve_item_type_ID.txt","r") as f:
     result = f.readlines()
 
 holderlist = []
@@ -16,7 +16,7 @@ for item in holderlist:
             item[1] += " " + item[num]
 
 
-with open("eve_type_id.csv", "w") as tarf:
+with open("data/eve_type_id.csv", "w") as tarf:
     wr = csv.writer(tarf)
     wr.writerow(['typeID','typeName'])
     for num in range(1,len(holderlist)):
