@@ -13,7 +13,7 @@ for line in result:
 for line in list_of_lines:
     if len(line) > 2:
         for num in range(2,len(line)):
-            item[1] += " " + item[num]
+            line[1] += " " + line[num]
 
 
 with open("data/eve_type_id.csv", "w") as target_file:
