@@ -229,6 +229,7 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get a list of type_ids that have open orders in the given region
     def get_relevant_type_ids(self, region_id: int | str, page=None) -> list:
         url = f"https://esi.evetech.net/markets/{region_id}/types"
 
@@ -248,7 +249,8 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
-    def get_historic_market_stats(self, region_id: int | str, type_id: int | str):
+    # Get a list of historical data on a type_id in the given region
+    def get_historic_market_stats(self, region_id: int | str, type_id: int | str) -> list:
         url = f"https://esi.evetech.net/markets/{region_id}/history"
 
         querystring = {"type_id": type_id}
@@ -263,5 +265,23 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers, params=querystring)
+        response.raise_for_status()
+        return response.json()
+
+    # Get a list of orders in the given structure
+    def get_orders_in_structure(self, structure_id: int | str) -> list:
+        url = f"https://esi.evetech.net/markets/structures/{structure_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json",
+            "Authorization": f"Bearer {self.tokens['access_token']}"
+        }
+
+        response = requests.get(url, headers=headers)
         response.raise_for_status()
         return response.json()
