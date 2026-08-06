@@ -228,3 +228,40 @@ class ESIHelper:
         response = requests.get(url, headers=headers, params=querystring)
         response.raise_for_status()
         return response.json()
+
+    def get_relevant_type_ids(self, region_id: int | str, page=None) -> list:
+        url = f"https://esi.evetech.net/markets/{region_id}/types"
+
+        querystring = {}
+        if page: querystring["page"] = page
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers, params=querystring)
+        response.raise_for_status()
+        return response.json()
+
+    def get_historic_market_stats(self, region_id: int | str, type_id: int | str):
+        url = f"https://esi.evetech.net/markets/{region_id}/history"
+
+        querystring = {"type_id": type_id}
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers, params=querystring)
+        response.raise_for_status()
+        return response.json()
