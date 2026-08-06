@@ -7,7 +7,7 @@ class ESIHelper:
         self.tokens = eve_oauth.run_oauth_flow()
 
     # Get ids for each name in a list
-    def names_to_ids(self, names: str | list) -> dict:
+    def names_to_ids(self, names: str | list[str]) -> dict:
         url = "https://esi.evetech.net/universe/ids"
 
         headers = {
@@ -186,5 +186,25 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
+
+        return response.json()
+
+    def get_orders_in_region(self, region_id: int | str, order_type="all", page=None, type_id=None) -> dict:
+        url = f"https://esi.evetech.net/markets/{region_id}/orders"
+
+        querystring = {"order_type":order_type}
+        if page: querystring["page"] = page
+        if type_id: querystring["type_id"] = type_id
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers, params=querystring)
 
         return response.json()
