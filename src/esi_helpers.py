@@ -50,6 +50,23 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get a list of all regions
+    def get_regions(self) -> list:
+        url = "https://esi.evetech.net/universe/regions"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
     # Get info about a region
     def get_region_info(self, region_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/regions/{region_id}"
@@ -67,6 +84,7 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get info about a stargate
     def get_stargate_info(self, stargate_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/stargates/{stargate_id}"
 
@@ -156,7 +174,7 @@ class ESIHelper:
         response.raise_for_status()
 
     # Get location of current player, either region, system, or station
-    def get_current_location(self):
+    def get_current_location(self) -> dict:
         url = f"https://esi.evetech.net/characters/{self.vars['player_id']}/location"
 
         headers = {
@@ -173,6 +191,7 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get market prices of various type_ids including adjusted and average price
     def get_market_prices(self) -> dict:
         url = "https://esi.evetech.net/markets/prices"
 
@@ -186,9 +205,10 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers)
-
+        response.raise_for_status()
         return response.json()
 
+    # Get all orders in the given region
     def get_orders_in_region(self, region_id: int | str, order_type="all", page=None, type_id=None) -> dict:
         url = f"https://esi.evetech.net/markets/{region_id}/orders"
 
@@ -206,5 +226,5 @@ class ESIHelper:
         }
 
         response = requests.get(url, headers=headers, params=querystring)
-
+        response.raise_for_status()
         return response.json()
