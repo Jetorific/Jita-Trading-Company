@@ -90,6 +90,40 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get a list of all constellations
+    def get_constellations(self) -> list:
+        url = "https://esi.evetech.net/universe/constellations"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
+    # Get info about a constellation
+    def get_constellation_info(self, constellation_id: int | str) -> dict:
+        url = f"https://esi.evetech.net/universe/constellations/{constellation_id}"
+
+        headers = {
+            "Accept-Language": "",  
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
     # Get info about a stargate
     def get_stargate_info(self, stargate_id: int | str) -> dict:
         url = f"https://esi.evetech.net/universe/stargates/{stargate_id}"
