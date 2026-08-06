@@ -1,10 +1,16 @@
 import requests
 import eve_oauth
+import json
 
 class ESIHelper:
+    REGION_INFORMATION_FILE = "src/data/universe/region_information.json"
+    REGION_LIST_FILE = "src/data/universe/region_list.json"
+
     def __init__(self, vars):
         self.vars = vars
         self.tokens = eve_oauth.run_oauth_flow()
+
+    ### API CALL FUNCTIONS ###
 
     # Get ids for each name in a list
     def names_to_ids(self, names: str | list[str]) -> dict:
@@ -229,6 +235,24 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get a list of orders in the given structure
+    def get_orders_in_structure(self, structure_id: int | str) -> list:
+        url = f"https://esi.evetech.net/markets/structures/{structure_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars[""],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json",
+            "Authorization": f"Bearer {self.tokens['access_token']}"
+        }
+
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
     # Get a list of type_ids that have open orders in the given region
     def get_relevant_type_ids(self, region_id: int | str, page=None) -> list:
         url = f"https://esi.evetech.net/markets/{region_id}/types"
@@ -268,20 +292,22 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
-    # Get a list of orders in the given structure
-    def get_orders_in_structure(self, structure_id: int | str) -> list:
-        url = f"https://esi.evetech.net/markets/structures/{structure_id}"
 
-        headers = {
-            "Accept-Language": "",
-            "If-None-Match": "",
-            "X-Compatibility-Date": self.vars["compatibility_date"],
-            "X-Tenant": "",
-            "If-Modified-Since": "",
-            "Accept": "application/json",
-            "Authorization": f"Bearer {self.tokens['access_token']}"
-        }
+    ### HELPER FUNCTIONS ###
 
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        return response.json()
+    # Find the region a given system is part of
+    def get_region_from_system(self, system_id: int | str) -> int:
+        with open(self.REGION_INFORMATION_FILE, "r"):
+            system_info = self.get_solar_system_info(system_id)
+            constellation = system_info["constellation_id"]
+
+            # Basic iterative approach for now
+            with open(self.REGION_LIST_FILE, "r") as f:
+                region_list = json.load(f)
+
+            with open(self.REGION_INFORMATION_FILE, "r") as f:
+                region_information = json.load(f)
+
+            for region_id in region_list:
+                if constellation in region_information[f"{region_id}"]["constellations"]:
+                    return region_id

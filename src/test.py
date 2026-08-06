@@ -12,12 +12,12 @@ def main() -> None:
         "compatibility_date" : "2026-07-21"
     })
 
-    print(esi.get_wallet_balance())
-    # system_id = esi.names_to_ids("Jita")['systems'][0]['id']
-    # esi.set_autopilot_waypoint(system_id, clear_other_waypoints="true")
-    # alt_tab()
-    # gui_autopilot()
-    # alt_tab()
+    location = esi.get_current_location()
+    region_id = esi.get_region_from_system(location["solar_system_id"])
+
+    print(location)
+    print(region_id)
+    print(esi.get_region_info(region_id))
 
 if __name__ == "__main__":
     main()
