@@ -1,5 +1,7 @@
 from esi_helpers import *
 import json
+import csv
+import time
 
 def read_player_id() -> str:
     with open("player_id", "r") as f:
@@ -28,4 +30,16 @@ save_market_prices(esi)
 
 market_data = esi.get_market_prices()
 
-print(type(market_data))
+item_database_list = []
+
+with open("src/data/eve_type_id.csv", encoding="utf-8") as item_id_csv:
+    item_database = csv.reader(item_id_csv, delimiter = ",")
+    for row in item_database:
+        item_database_list.append(row)
+
+for item in market_data:
+    type_id = str(item["type_id"])
+    for row in item_database_list:
+        if row[0] == type_id:
+            item["item_name"] = row[1]
+
