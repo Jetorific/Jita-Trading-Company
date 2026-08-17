@@ -25,3 +25,7 @@ save_market_prices(esi)
 # alright, so, the JSON response for save_market_prices returns a list of dictionaries, with one dictionary per item listed in the market
 # the dictionaries contain the following: {"adjusted_price":float,"average_price":float,"type_id":int}
 # still no effing idea what adjusted price corresponds to though
+
+market_data = esi.get_market_prices()
+
+print(type(market_data))
