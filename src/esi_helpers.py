@@ -175,6 +175,24 @@ class ESIHelper:
         response.raise_for_status()
         return response.json()
 
+    # Get info of a given item's type_id
+    def get_item_info(self, type_id: int | str) -> dict:
+        url = f"https://esi.evetech.net/universe/types/{type_id}"
+
+        headers = {
+            "Accept-Language": "",
+            "If-None-Match": "",
+            "X-Compatibility-Date": self.vars["compatibility_date"],
+            "X-Tenant": "",
+            "If-Modified-Since": "",
+            "Accept": "application/json"
+        }
+
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
+        
     # Get balance of current player
     def get_wallet_balance(self) -> dict:
         url = f"https://esi.evetech.net/characters/{self.vars['player_id']}/wallet"
