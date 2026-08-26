@@ -1,6 +1,7 @@
 from esi_helpers import *
 import requests
 import csv
+import pdb
 
 def read_player_id() -> str:
     with open("player_id", "r") as f:
@@ -14,7 +15,6 @@ esi = ESIHelper({"player_id": read_player_id(), "compatibility_date":"2026-08-18
 market_data = esi.get_market_prices()
 
 initial_market_data_index = 0
-
 
 with open("src/data/complete_market_data.csv", "a") as target_csv:
     writer = csv.writer(target_csv)
@@ -32,5 +32,5 @@ with open("src/data/complete_market_data.csv", "a") as target_csv:
             writer.writerow([initial_market_data_index])
             exit
 
-#note to later self, good luck getting this nightmare spaghetti code to actually output anything useful, ESI has 0 guidelines on how often you should be calling the get_item_info
-#also I came up with most of this logic at 3 in the morning, so it might probably work?
+# No actual changes were really made this rev, but main thing I need to figure out in the coming days is a nice way to run part of this list and then stop after that.
+# FOLLOW UP TO THE ABOVE, I'm going to have to completely re-write all of this, it's not parsing the data in the way I expected it to, but the file writing does seem to be working somehow. Also the keyboard interrupts are borked af.
