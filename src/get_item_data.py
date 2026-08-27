@@ -15,22 +15,8 @@ market_data = esi.get_market_prices()
 
 initial_market_data_index = 0
 
-
-with open("src/data/complete_market_data.csv", "a") as target_csv:
-    writer = csv.writer(target_csv)
-    writer.writerow(list(market_data[0].keys()))
-    for num in range(initial_market_data_index,len(market_data)):
-        try:
-            item_info = esi.get_item_info(market_data[num]["type_id"])
-            item_info.pop("dogma_attributes",None)
-            item_info_list = []
-            for key in item_info.keys():
-                item_info_list.append(item_info[key])
-            writer.writerow(item_info_list)
-            initial_market_data_index +=1
-        except KeyboardInterrupt:
-            writer.writerow([initial_market_data_index])
-            exit
-
-#note to later self, good luck getting this nightmare spaghetti code to actually output anything useful, ESI has 0 guidelines on how often you should be calling the get_item_info
-#also I came up with most of this logic at 3 in the morning, so it might probably work?
+with open("src/data/complete_typeid_list.csv","w") as file:
+    writer = csv.writer(file)
+    writer.writerow(["type_id"])
+    for item in market_data:
+        writer.writerow([item["type_id"]])
