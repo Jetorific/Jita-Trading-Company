@@ -179,3 +179,370 @@ type_id,name,volume,packaged_volume,mass,market_group_id,icon_id,group_id,capaci
 564,Light Neutron Blaster I,5.0,5.0,500.0,561,376,74,0.2
 565,150mm Railgun I,5.0,5.0,500.0,564,349,74,0.1
 566,Heavy Electron Blaster I,10.0,10.0,2000.0,562,371,74,2.5
+567,Dual 150mm Railgun I,10.0,10.0,1000.0,565,370,74,2.0
+568,Heavy Neutron Blaster I,25.0,25.0,1000.0,562,371,74,1.0
+569,Heavy Ion Blaster I,10.0,10.0,1000.0,562,371,74,1.5
+570,250mm Railgun I,25.0,25.0,1000.0,565,370,74,0.5
+571,Electron Blaster Cannon I,50.0,50.0,2000.0,563,365,74,5.0
+572,Dual 250mm Railgun I,20.0,20.0,2000.0,566,366,74,4.0
+573,Neutron Blaster Cannon I,50.0,50.0,2000.0,563,365,74,2.0
+574,425mm Railgun I,50.0,50.0,2000.0,566,366,74,1.0
+575,Ion Blaster Cannon I,50.0,50.0,2000.0,563,365,74,3.0
+577,Medium Capacitor Booster I,10.0,10.0,0.0,700,1031,76,32.0
+578,Multispectrum Shield Hardener I,5.0,5.0,10000.0,1696,81,77,0.0
+580,Burst Jammer I,5.0,5.0,5000.0,678,109,80,0.0
+581,Passive Targeter I,25.0,25.0,2000.0,672,26724,82,0.0
+582,Bantam,20000.0,2500.0,1480000.0,61,,25,270.0
+583,Condor,18000.0,2500.0,1100000.0,61,,25,130.0
+584,Griffin,19400.0,2500.0,1056000.0,61,,25,260.0
+585,Slasher,17400.0,2500.0,1075000.0,64,,25,120.0
+586,Probe,19500.0,2500.0,1123000.0,64,,25,400.0
+587,Rifter,27289.0,2500.0,1067000.0,64,,25,140.0
+588,Reaper,15800.0,2500.0,1157000.0,1819,,237,120.0
+589,Executioner,28100.0,2500.0,1090000.0,72,,25,115.0
+590,Inquisitor,28700.0,2500.0,1630000.0,72,,25,250.0
+591,Tormentor,24398.0,2500.0,1080000.0,72,,25,130.0
+592,Navitas,10000.0,2500.0,1450000.0,77,,25,280.0
+593,Tristan,26500.0,2500.0,1044000.0,77,,25,140.0
+594,Incursus,29500.0,2500.0,1028000.0,77,,25,165.0
+596,Impairor,28100.0,2500.0,1148000.0,1816,,237,115.0
+597,Punisher,28600.0,2500.0,1190000.0,72,,25,135.0
+598,Breacher,20000.0,2500.0,1087000.0,64,,25,175.0
+599,Burst,17100.0,2500.0,1420000.0,64,,25,260.0
+601,Ibis,15000.0,2500.0,1163000.0,1817,,237,125.0
+602,Kestrel,19700.0,2500.0,1113000.0,61,,25,160.0
+603,Merlin,16500.0,2500.0,997000.0,61,,25,150.0
+605,Heron,18900.0,2500.0,1150000.0,61,,25,400.0
+606,Velator,24500.0,2500.0,1148000.0,1818,,237,135.0
+607,Imicus,21500.0,2500.0,997000.0,77,,25,400.0
+608,Atron,22500.0,2500.0,1050000.0,77,,25,145.0
+609,Maulus,23000.0,2500.0,1063000.0,77,,25,275.0
+620,Osprey,107000.0,10000.0,11100000.0,75,,26,485.0
+621,Caracal,92000.0,10000.0,11910000.0,75,,26,450.0
+622,Stabber,80000.0,10000.0,11400000.0,73,,26,420.0
+623,Moa,101000.0,10000.0,12000000.0,75,,26,450.0
+624,Maller,118000.0,10000.0,13150000.0,74,,26,480.0
+625,Augoror,115000.0,10000.0,12870000.0,74,,26,465.0
+626,Vexor,115000.0,10000.0,11100000.0,76,,26,480.0
+627,Thorax,112000.0,10000.0,11280000.0,76,,26,465.0
+628,Arbitrator,120000.0,10000.0,11200000.0,74,,26,345.0
+629,Rupture,96000.0,10000.0,12200000.0,73,,26,450.0
+630,Bellicose,85000.0,10000.0,11550000.0,73,,26,315.0
+631,Scythe,89000.0,10000.0,11110000.0,73,,26,475.0
+632,Blackbird,96000.0,10000.0,13190000.0,75,,26,305.0
+633,Celestis,116000.0,10000.0,12070000.0,76,,26,320.0
+634,Exequror,113000.0,10000.0,11020000.0,76,,26,495.0
+638,Raven,470000.0,50000.0,99300000.0,80,,27,830.0
+639,Tempest,450000.0,50000.0,99500000.0,78,,27,780.0
+640,Scorpion,468000.0,50000.0,103600000.0,80,,27,690.0
+641,Megathron,470000.0,50000.0,98400000.0,81,,27,845.0
+642,Apocalypse,470000.0,50000.0,97100000.0,79,,27,845.0
+643,Armageddon,470000.0,50000.0,105200000.0,79,,27,750.0
+644,Typhoon,414000.0,50000.0,100600000.0,78,,27,780.0
+645,Dominix,454500.0,50000.0,100250000.0,81,,27,750.0
+648,Badger,250000.0,20000.0,10650000.0,84,,28,3900.0
+649,Tayra,270000.0,20000.0,13000000.0,84,,28,7300.0
+650,Nereus,240000.0,20000.0,11250000.0,83,,28,2700.0
+651,Hoarder,400000.0,20000.0,10625000.0,82,,28,500.0
+652,Mammoth,255000.0,20000.0,11500000.0,82,,28,5500.0
+653,Wreathe,225000.0,20000.0,10000000.0,82,,28,2900.0
+654,Kryos,245000.0,20000.0,12625000.0,83,,28,550.0
+655,Epithal,250000.0,20000.0,12800000.0,83,,28,550.0
+656,Miasmos,265000.0,20000.0,12975000.0,83,,28,550.0
+657,Iteron Mark V,275000.0,20000.0,13500000.0,83,,28,5800.0
+671,Erebus,145500000.0,10000000.0,2100000000.0,815,,30,16250.0
+672,Caldari Shuttle,5000.0,500.0,1600000.0,396,,31,10.0
+683,Bantam Blueprint,0.01,0.01,0.0,261,,105,0.0
+684,Condor Blueprint,0.01,0.01,0.0,261,,105,0.0
+685,Griffin Blueprint,0.01,0.01,0.0,261,,105,0.0
+686,Osprey Blueprint,0.01,0.01,0.0,275,,106,0.0
+687,Caracal Blueprint,0.01,0.01,0.0,275,,106,0.0
+688,Raven Blueprint,0.01,0.01,0.0,280,,107,0.0
+689,Slasher Blueprint,0.01,0.01,0.0,264,,105,0.0
+690,Probe Blueprint,0.01,0.01,0.0,264,,105,0.0
+691,Rifter Blueprint,0.01,0.01,0.0,264,,105,0.0
+692,Stabber Blueprint,0.01,0.01,0.0,273,,106,0.0
+693,Tempest Blueprint,0.01,0.01,0.0,278,,107,0.0
+785,Miner I Blueprint,0.01,0.01,0.0,338,1061,134,0.0
+786,Light Missile Launcher I Blueprint,0.01,0.01,0.0,340,168,136,0.0
+788,Heavy Missile Launcher I Blueprint,0.01,0.01,0.0,340,169,136,0.0
+790,Torpedo Launcher I Blueprint,0.01,0.01,0.0,340,170,136,0.0
+803,Mjolnir Cruise Missile Blueprint,0.01,0.01,1.0,1526,182,166,0.0
+804,Scourge Cruise Missile Blueprint,0.01,0.01,1.0,1526,183,166,0.0
+805,Inferno Cruise Missile Blueprint,0.01,0.01,1.0,1526,184,166,0.0
+806,Nova Cruise Missile Blueprint,0.01,0.01,1.0,1526,185,166,0.0
+807,Nova Heavy Missile Blueprint,0.01,0.01,1.0,1527,186,166,0.0
+808,Mjolnir Heavy Missile Blueprint,0.01,0.01,1.0,1527,187,166,0.0
+809,Inferno Heavy Missile Blueprint,0.01,0.01,1.0,1527,188,166,0.0
+810,Scourge Heavy Missile Blueprint,0.01,0.01,1.0,1527,189,166,0.0
+811,Scourge Light Missile Blueprint,0.01,0.01,1.0,1528,190,166,0.0
+812,Inferno Light Missile Blueprint,0.01,0.01,1.0,1528,191,166,0.0
+813,Mjolnir Light Missile Blueprint,0.01,0.01,1.0,1528,192,166,0.0
+814,Nova Light Missile Blueprint,0.01,0.01,1.0,1528,193,166,0.0
+819,125mm Gatling AutoCannon I Blueprint,0.01,0.01,0.0,296,387,135,0.0
+820,150mm Light AutoCannon I Blueprint,0.01,0.01,0.0,296,387,135,0.0
+821,200mm AutoCannon I Blueprint,0.01,0.01,0.0,296,387,135,0.0
+822,250mm Light Artillery Cannon I Blueprint,0.01,0.01,0.0,296,389,135,0.0
+823,280mm Howitzer Artillery I Blueprint,0.01,0.01,0.0,296,389,135,0.0
+824,Dual 180mm AutoCannon I Blueprint,0.01,0.01,0.0,297,386,135,0.0
+825,220mm Vulcan AutoCannon I Blueprint,0.01,0.01,0.0,297,386,135,0.0
+826,425mm AutoCannon I Blueprint,0.01,0.01,0.0,297,386,135,0.0
+827,650mm Artillery Cannon I Blueprint,0.01,0.01,0.0,297,384,135,0.0
+828,720mm Howitzer Artillery I Blueprint,0.01,0.01,0.0,297,384,135,0.0
+829,Dual 425mm AutoCannon I Blueprint,0.01,0.01,0.0,298,381,135,0.0
+830,Dual 650mm Repeating Cannon I Blueprint,0.01,0.01,0.0,298,381,135,0.0
+831,800mm Repeating Cannon I Blueprint,0.01,0.01,0.0,298,381,135,0.0
+832,1200mm Artillery Cannon I Blueprint,0.01,0.01,0.0,298,379,135,0.0
+833,1400mm Howitzer Artillery I Blueprint,0.01,0.01,0.0,298,379,135,0.0
+834,Gatling Pulse Laser I Blueprint,0.01,0.01,0.0,292,350,133,0.0
+835,Dual Light Pulse Laser I Blueprint,0.01,0.01,0.0,292,350,133,0.0
+836,Dual Light Beam Laser I Blueprint,0.01,0.01,0.0,292,352,133,0.0
+837,Small Focused Pulse Laser I Blueprint,0.01,0.01,0.0,292,350,133,0.0
+838,Small Focused Beam Laser I Blueprint,0.01,0.01,0.0,292,352,133,0.0
+839,Quad Light Beam Laser I Blueprint,0.01,0.01,0.0,293,355,133,0.0
+840,Focused Medium Pulse Laser I Blueprint,0.01,0.01,0.0,293,356,133,0.0
+841,Focused Medium Beam Laser I Blueprint,0.01,0.01,0.0,293,355,133,0.0
+842,Heavy Pulse Laser I Blueprint,0.01,0.01,0.0,293,356,133,0.0
+843,Heavy Beam Laser I Blueprint,0.01,0.01,0.0,293,355,133,0.0
+844,Dual Heavy Pulse Laser I Blueprint,0.01,0.01,0.0,295,360,133,0.0
+845,Dual Heavy Beam Laser I Blueprint,0.01,0.01,0.0,295,361,133,0.0
+846,Mega Pulse Laser I Blueprint,0.01,0.01,0.0,295,360,133,0.0
+847,Mega Beam Laser I Blueprint,0.01,0.01,0.0,295,361,133,0.0
+848,Tachyon Beam Laser I Blueprint,0.01,0.01,0.0,295,361,133,0.0
+879,Carbonized Lead S Blueprint,0.01,0.01,0.0,313,1004,165,0.0
+880,Nuclear S Blueprint,0.01,0.01,0.0,313,1288,165,0.0
+881,Proton S Blueprint,0.01,0.01,0.0,313,1290,165,0.0
+882,Depleted Uranium S Blueprint,0.01,0.01,0.0,313,1285,165,0.0
+883,Titanium Sabot S Blueprint,0.01,0.01,0.0,313,1291,165,0.0
+884,Fusion S Blueprint,0.01,0.01,0.0,313,1287,165,0.0
+885,Phased Plasma S Blueprint,0.01,0.01,0.0,313,1289,165,0.0
+886,EMP S Blueprint,0.01,0.01,0.0,313,1286,165,0.0
+887,Carbonized Lead M Blueprint,0.01,0.01,0.0,312,1292,165,0.0
+888,Nuclear M Blueprint,0.01,0.01,0.0,312,1296,165,0.0
+889,Proton M Blueprint,0.01,0.01,0.0,312,1298,165,0.0
+890,Depleted Uranium M Blueprint,0.01,0.01,0.0,312,1293,165,0.0
+891,Titanium Sabot M Blueprint,0.01,0.01,0.0,312,1299,165,0.0
+892,Fusion M Blueprint,0.01,0.01,0.0,312,1295,165,0.0
+893,Phased Plasma M Blueprint,0.01,0.01,0.0,312,1297,165,0.0
+894,EMP M Blueprint,0.01,0.01,0.0,312,1294,165,0.0
+895,Carbonized Lead L Blueprint,0.01,0.01,0.0,309,1300,165,0.0
+896,Nuclear L Blueprint,0.01,0.01,0.0,309,1304,165,0.0
+897,Proton L Blueprint,0.01,0.01,0.0,309,1306,165,0.0
+898,Depleted Uranium L Blueprint,0.01,0.01,0.0,309,1301,165,0.0
+899,Titanium Sabot L Blueprint,0.01,0.01,0.0,309,1307,165,0.0
+900,Fusion L Blueprint,0.01,0.01,0.0,309,1303,165,0.0
+901,Phased Plasma L Blueprint,0.01,0.01,0.0,309,1305,165,0.0
+902,EMP L Blueprint,0.01,0.01,0.0,309,1302,165,0.0
+936,Executioner Blueprint,0.01,0.01,0.0,272,,105,0.0
+937,Inquisitor Blueprint,0.01,0.01,0.0,272,,105,0.0
+938,Tormentor Blueprint,0.01,0.01,0.0,272,,105,0.0
+939,Navitas Blueprint,0.01,0.01,0.0,277,,105,0.0
+940,Tristan Blueprint,0.01,0.01,0.0,277,,105,0.0
+941,Incursus Blueprint,0.01,0.01,0.0,277,,105,0.0
+944,Punisher Blueprint,0.01,0.01,0.0,272,,105,0.0
+945,Breacher Blueprint,0.01,0.01,0.0,264,,105,0.0
+946,Burst Blueprint,0.01,0.01,0.0,264,,105,0.0
+949,Kestrel Blueprint,0.01,0.01,0.0,261,,105,0.0
+950,Merlin Blueprint,0.01,0.01,0.0,261,,105,0.0
+952,Heron Blueprint,0.01,0.01,0.0,261,,105,0.0
+954,Imicus Blueprint,0.01,0.01,0.0,277,,105,0.0
+955,Atron Blueprint,0.01,0.01,0.0,277,,105,0.0
+956,Maulus Blueprint,0.01,0.01,0.0,277,,105,0.0
+967,Caldari Shuttle Blueprint,0.01,0.01,0.0,416,,111,0.0
+968,Moa Blueprint,0.01,0.01,0.0,275,,106,0.0
+969,Maller Blueprint,0.01,0.01,0.0,274,,106,0.0
+970,Augoror Blueprint,0.01,0.01,0.0,274,,106,0.0
+971,Vexor Blueprint,0.01,0.01,0.0,276,,106,0.0
+972,Thorax Blueprint,0.01,0.01,0.0,276,,106,0.0
+973,Arbitrator Blueprint,0.01,0.01,0.0,274,,106,0.0
+974,Rupture Blueprint,0.01,0.01,0.0,273,,106,0.0
+975,Bellicose Blueprint,0.01,0.01,0.0,273,,106,0.0
+976,Scythe Blueprint,0.01,0.01,0.0,273,,106,0.0
+977,Blackbird Blueprint,0.01,0.01,0.0,275,,106,0.0
+978,Celestis Blueprint,0.01,0.01,0.0,276,,106,0.0
+979,Exequror Blueprint,0.01,0.01,0.0,276,,106,0.0
+983,Badger Blueprint,0.01,0.01,0.0,284,,108,0.0
+984,Tayra Blueprint,0.01,0.01,0.0,284,,108,0.0
+985,Nereus Blueprint,0.01,0.01,0.0,283,,108,0.0
+986,Hoarder Blueprint,0.01,0.01,0.0,282,,108,0.0
+987,Mammoth Blueprint,0.01,0.01,0.0,282,,108,0.0
+988,Wreathe Blueprint,0.01,0.01,0.0,282,,108,0.0
+989,Kryos Blueprint,0.01,0.01,0.0,283,,108,0.0
+990,Epithal Blueprint,0.01,0.01,0.0,283,,108,0.0
+991,Miasmos Blueprint,0.01,0.01,0.0,283,,108,0.0
+992,Iteron Mark V Blueprint,0.01,0.01,0.0,283,,108,0.0
+994,Scorpion Blueprint,0.01,0.01,0.0,280,,107,0.0
+995,Megathron Blueprint,0.01,0.01,0.0,281,,107,0.0
+996,Apocalypse Blueprint,0.01,0.01,0.0,279,,107,0.0
+997,Armageddon Blueprint,0.01,0.01,0.0,279,,107,0.0
+998,Typhoon Blueprint,0.01,0.01,0.0,278,,107,0.0
+999,Dominix Blueprint,0.01,0.01,0.0,281,,107,0.0
+1010,Small Shield Extender I Blueprint,0.01,0.01,0.0,1549,1044,118,0.0
+1026,Shield Recharger I Blueprint,0.01,0.01,0.0,1551,26451,119,0.0
+1032,Small Shield Booster I Blueprint,0.01,0.01,0.0,1552,84,120,0.0
+1067,5MN Microwarpdrive I Blueprint,0.01,0.01,0.0,331,10149,126,0.0
+1072,1MN Afterburner I Blueprint,0.01,0.01,0.0,1525,96,126,0.0
+1074,Cargo Scanner I Blueprint,0.01,0.01,0.0,325,106,127,0.0
+1075,Ship Scanner I Blueprint,0.01,0.01,0.0,325,107,128,0.0
+1076,Mining Survey Chipset I Blueprint,0.01,0.01,0.0,325,2732,129,0.0
+1079,Warp Scrambler I Blueprint,0.01,0.01,0.0,1939,3433,132,0.0
+1096,Gyrostabilizer I Blueprint,0.01,0.01,0.0,343,26452,139,0.0
+1099,Small Armor Repairer I Blueprint,0.01,0.01,0.0,1536,80,142,0.0
+1100,Small Hull Repairer I Blueprint,0.01,0.01,0.0,1537,21378,143,0.0
+1102,Stasis Webifier I Blueprint,0.01,0.01,0.0,1570,1284,145,0.0
+1105,Small Remote Capacitor Transmitter I Blueprint,0.01,0.01,0.0,1562,1035,147,0.0
+1106,Small Energy Nosferatu I Blueprint,0.01,0.01,0.0,1564,1029,148,0.0
+1109,Small Energy Neutralizer I Blueprint,0.01,0.01,0.0,1565,1283,151,0.0
+1112,75mm Gatling Rail I Blueprint,0.01,0.01,0.0,291,349,154,0.0
+1113,Light Electron Blaster I Blueprint,0.01,0.01,0.0,291,376,154,0.0
+1114,Light Ion Blaster I Blueprint,0.01,0.01,0.0,291,376,154,0.0
+1115,Light Neutron Blaster I Blueprint,0.01,0.01,0.0,291,376,154,0.0
+1116,150mm Railgun I Blueprint,0.01,0.01,0.0,291,349,154,0.0
+1117,Heavy Electron Blaster I Blueprint,0.01,0.01,0.0,290,371,154,0.0
+1118,Dual 150mm Railgun I Blueprint,0.01,0.01,0.0,290,370,154,0.0
+1119,Heavy Neutron Blaster I Blueprint,0.01,0.01,0.0,290,371,154,0.0
+1120,Heavy Ion Blaster I Blueprint,0.01,0.01,0.0,290,371,154,0.0
+1121,250mm Railgun I Blueprint,0.01,0.01,0.0,290,370,154,0.0
+1122,Electron Blaster Cannon I Blueprint,0.01,0.01,0.0,289,365,154,0.0
+1123,Dual 250mm Railgun I Blueprint,0.01,0.01,0.0,289,366,154,0.0
+1124,Neutron Blaster Cannon I Blueprint,0.01,0.01,0.0,289,365,154,0.0
+1125,425mm Railgun I Blueprint,0.01,0.01,0.0,289,366,154,0.0
+1126,Ion Blaster Cannon I Blueprint,0.01,0.01,0.0,289,365,154,0.0
+1128,Medium Capacitor Booster I Blueprint,0.01,0.01,0.0,1563,1031,156,0.0
+1129,Multispectrum Shield Hardener I Blueprint,0.01,0.01,0.0,1548,81,157,0.0
+1130,Iron Charge S Blueprint,0.01,0.01,0.0,307,1311,167,0.0
+1131,Tungsten Charge S Blueprint,0.01,0.01,0.0,307,1315,167,0.0
+1132,Iridium Charge S Blueprint,0.01,0.01,0.0,307,1310,167,0.0
+1133,Lead Charge S Blueprint,0.01,0.01,0.0,307,1312,167,0.0
+1134,Thorium Charge S Blueprint,0.01,0.01,0.0,307,1314,167,0.0
+1135,Uranium Charge S Blueprint,0.01,0.01,0.0,307,1316,167,0.0
+1136,Plutonium Charge S Blueprint,0.01,0.01,0.0,307,1313,167,0.0
+1137,Antimatter Charge S Blueprint,0.01,0.01,0.0,307,1047,167,0.0
+1138,Iron Charge M Blueprint,0.01,0.01,0.0,308,1319,167,0.0
+1139,Tungsten Charge M Blueprint,0.01,0.01,0.0,308,1323,167,0.0
+1140,Iridium Charge M Blueprint,0.01,0.01,0.0,308,1318,167,0.0
+1141,Lead Charge M Blueprint,0.01,0.01,0.0,308,1320,167,0.0
+1142,Thorium Charge M Blueprint,0.01,0.01,0.0,308,1322,167,0.0
+1143,Uranium Charge M Blueprint,0.01,0.01,0.0,308,1324,167,0.0
+1144,Plutonium Charge M Blueprint,0.01,0.01,0.0,308,1321,167,0.0
+1145,Antimatter Charge M Blueprint,0.01,0.01,0.0,308,1317,167,0.0
+1146,Iron Charge L Blueprint,0.01,0.01,0.0,306,1327,167,0.0
+1147,Tungsten Charge L Blueprint,0.01,0.01,0.0,306,1331,167,0.0
+1148,Iridium Charge L Blueprint,0.01,0.01,0.0,306,1326,167,0.0
+1149,Lead Charge L Blueprint,0.01,0.01,0.0,306,1328,167,0.0
+1150,Thorium Charge L Blueprint,0.01,0.01,0.0,306,1330,167,0.0
+1151,Uranium Charge L Blueprint,0.01,0.01,0.0,306,1332,167,0.0
+1152,Plutonium Charge L Blueprint,0.01,0.01,0.0,306,1329,167,0.0
+1153,Antimatter Charge L Blueprint,0.01,0.01,0.0,306,1325,167,0.0
+1154,Radio S Blueprint,0.01,0.01,0.0,302,1145,168,0.0
+1155,Microwave S Blueprint,0.01,0.01,0.0,302,1143,168,0.0
+1156,Infrared S Blueprint,0.01,0.01,0.0,302,1144,168,0.0
+1157,Standard S Blueprint,0.01,0.01,0.0,302,1142,168,0.0
+1158,Ultraviolet S Blueprint,0.01,0.01,0.0,302,1141,168,0.0
+1159,Xray S Blueprint,0.01,0.01,0.0,302,1140,168,0.0
+1160,Gamma S Blueprint,0.01,0.01,0.0,302,1139,168,0.0
+1161,Multifrequency S Blueprint,0.01,0.01,0.0,302,1131,168,0.0
+1162,Radio M Blueprint,0.01,0.01,0.0,303,1145,168,0.0
+1163,Microwave M Blueprint,0.01,0.01,0.0,303,1143,168,0.0
+1164,Infrared M Blueprint,0.01,0.01,0.0,303,1144,168,0.0
+1165,Standard M Blueprint,0.01,0.01,0.0,303,1142,168,0.0
+1166,Ultraviolet M Blueprint,0.01,0.01,0.0,303,1141,168,0.0
+1167,Xray M Blueprint,0.01,0.01,0.0,303,1140,168,0.0
+1168,Gamma M Blueprint,0.01,0.01,0.0,303,1139,168,0.0
+1169,Multifrequency M Blueprint,0.01,0.01,0.0,303,1131,168,0.0
+1170,Radio L Blueprint,0.01,0.01,0.0,305,1145,168,0.0
+1171,Microwave L Blueprint,0.01,0.01,0.0,305,1143,168,0.0
+1172,Infrared L Blueprint,0.01,0.01,0.0,305,1144,168,0.0
+1173,Standard L Blueprint,0.01,0.01,0.0,305,1142,168,0.0
+1174,Ultraviolet L Blueprint,0.01,0.01,0.0,305,1141,168,0.0
+1175,Xray L Blueprint,0.01,0.01,0.0,305,1140,168,0.0
+1176,Gamma L Blueprint,0.01,0.01,0.0,305,1139,168,0.0
+1177,Multifrequency L Blueprint,0.01,0.01,0.0,305,1131,168,0.0
+1178,Cap Booster 25 Blueprint,0.01,0.01,0.0,339,1033,169,0.0
+1179,Cap Booster 50 Blueprint,0.01,0.01,0.0,339,1033,169,0.0
+1182,Auto Targeting System I,5.0,5.0,30.0,670,26721,96,0.0
+1183,Small Armor Repairer II,5.0,5.0,500.0,1049,80,62,0.0
+1185,Small Cap Battery I,5.0,5.0,0.0,703,89,61,0.0
+1186,Small Cap Battery I Blueprint,0.01,0.01,0.0,1558,89,141,0.0
+1190,Small Remote Capacitor Transmitter II,5.0,5.0,10000.0,695,1035,67,0.0
+1192,'Basic' Overdrive Injector System,5.0,5.0,50.0,1087,98,764,0.0
+1193,'Basic' EM Coating,5.0,5.0,1.0,1668,20956,98,0.0
+1195,Cap Recharger I,5.0,5.0,1.0,665,26457,43,0.0
+1196,Cap Recharger I Blueprint,0.01,0.01,0.0,1555,26457,123,0.0
+1197,EM Coating I,5.0,5.0,1.0,1668,20956,98,0.0
+1198,EM Coating II,5.0,5.0,1.0,1668,20956,98,0.0
+1201,Wasp I,25.0,25.0,10000.0,839,,100,0.0
+1202,Civilian Mining Drone,5.0,5.0,0.0,158,,101,0.0
+1204,EM Coating I Blueprint,0.01,0.01,0.0,1544,20956,163,0.0
+1208,Auto Targeting System I Blueprint,0.01,0.01,0.0,1579,26721,162,0.0
+1210,Burst Jammer I Blueprint,0.01,0.01,0.0,1568,109,160,0.0
+1214,Wasp I Blueprint,0.01,0.01,0.0,359,,176,0.0
+1216,Mjolnir Auto-Targeting Light Missile I Blueprint,0.01,0.01,1.0,315,1336,166,0.0
+1218,Civilian Mining Drone Blueprint,0.01,0.01,0.0,358,,177,0.0
+1220,Scourge Rocket Blueprint,0.01,0.01,1.0,318,1350,166,0.0
+1221,Scourge Torpedo Blueprint,0.01,0.01,1.0,390,1346,166,0.0
+1223,Bistot,16.0,16.0,1e+35,514,1273,451,0.0
+1224,Pyroxeres,0.3,0.3,1e+35,515,231,459,0.0
+1225,Crokite,16.0,16.0,1e+35,521,1272,452,0.0
+1226,Jaspet,2.0,2.0,1e+35,529,1279,456,0.0
+1227,Omber,0.6,0.6,1e+35,526,1271,469,0.0
+1228,Scordite,0.15,0.15,1e+35,519,1356,460,0.0
+1229,Gneiss,5.0,5.0,1e+35,525,1377,467,0.0
+1230,Veldspar,0.1,0.1,4000.0,518,232,462,0.0
+1231,Hemorphite,3.0,3.0,1e+35,528,1282,455,0.0
+1232,Dark Ochre,8.0,8.0,1e+35,522,1275,453,0.0
+1236,Overdrive Injector System II,5.0,5.0,100.0,1087,98,764,0.0
+1240,'Basic' Reinforced Bulkheads,5.0,5.0,200.0,1195,76,78,0.0
+1242,'Basic' Nanofiber Internal Structure,5.0,5.0,100.0,1196,1042,763,0.0
+1244,Overdrive Injector System I,5.0,5.0,50.0,1087,98,764,0.0
+1245,Overdrive Injector System I Blueprint,0.01,0.01,0.0,332,98,158,0.0
+1246,Capacitor Flux Coil I,5.0,5.0,20.0,666,26456,768,0.0
+1247,Capacitor Flux Coil I Blueprint,0.01,0.01,0.0,1556,26456,137,0.0
+1248,Capacitor Flux Coil II,5.0,5.0,20.0,666,26456,768,0.0
+1254,Shield Flux Coil I,5.0,5.0,20.0,687,26449,770,0.0
+1255,Shield Flux Coil I Blueprint,0.01,0.01,0.0,1547,26449,137,0.0
+1256,Shield Flux Coil II,5.0,5.0,20.0,687,26449,770,0.0
+1262,'Basic' Explosive Coating,5.0,5.0,1.0,1667,20955,98,0.0
+1264,Explosive Coating I,5.0,5.0,1.0,1667,20955,98,0.0
+1265,Explosive Coating I Blueprint,0.01,0.01,0.0,1544,20955,163,0.0
+1266,Explosive Coating II,5.0,5.0,1.0,1667,20955,98,0.0
+1272,'Basic' Layered Coating,5.0,5.0,1.0,1669,1030,98,0.0
+1274,Layered Coating I,5.0,5.0,1.0,1669,1030,98,0.0
+1275,Layered Coating I Blueprint,0.01,0.01,0.0,1544,1030,163,0.0
+1276,Layered Coating II,5.0,5.0,1.0,1669,1030,98,0.0
+1282,'Basic' Kinetic Coating,5.0,5.0,1.0,1666,20957,98,0.0
+1284,Kinetic Coating I,5.0,5.0,1.0,1666,20957,98,0.0
+1285,Kinetic Coating I Blueprint,0.01,0.01,0.0,1544,20957,163,0.0
+1286,Kinetic Coating II,5.0,5.0,1.0,1666,20957,98,0.0
+1292,'Basic' Thermal Coating,5.0,5.0,1.0,1665,20958,98,0.0
+1294,Thermal Coating I,5.0,5.0,1.0,1665,20958,98,0.0
+1295,Thermal Coating I Blueprint,0.01,0.01,0.0,1544,20958,163,0.0
+1296,Thermal Coating II,5.0,5.0,1.0,1665,20958,98,0.0
+1302,'Basic' Multispectrum Coating,5.0,5.0,1.0,1670,1030,98,0.0
+1304,Multispectrum Coating I,5.0,5.0,1.0,1670,1030,98,0.0
+1305,Multispectrum Coating I Blueprint,0.01,0.01,0.0,1544,1030,163,0.0
+1306,Multispectrum Coating II,5.0,5.0,1.0,1670,1030,98,0.0
+1315,'Basic' Expanded Cargohold,5.0,5.0,50.0,1197,92,765,0.0
+1317,Expanded Cargohold I,5.0,5.0,50.0,1197,92,765,0.0
+1318,Expanded Cargohold I Blueprint,0.01,0.01,0.0,335,92,158,0.0
+1319,Expanded Cargohold II,5.0,5.0,50.0,1197,92,765,0.0
+1333,Reinforced Bulkheads I,25.0,25.0,200.0,1195,76,78,0.0
+1334,Reinforced Bulkheads I Blueprint,0.01,0.01,0.0,335,76,158,0.0
+1335,Reinforced Bulkheads II,5.0,5.0,200.0,1195,76,78,0.0
+1351,'Basic' Reactor Control Unit,5.0,5.0,20.0,659,26547,769,0.0
+1353,Reactor Control Unit I,5.0,5.0,20.0,659,26547,769,0.0
+1354,Reactor Control Unit I Blueprint,0.01,0.01,0.0,1561,26547,137,0.0
+1355,Reactor Control Unit II,5.0,5.0,20.0,659,26547,769,0.0
+1401,'Basic' Inertial Stabilizers,5.0,5.0,200.0,1086,1041,762,0.0
+1403,Inertial Stabilizers I,5.0,5.0,200.0,1086,1041,762,0.0
+1404,Inertial Stabilizers I Blueprint,0.01,0.01,0.0,332,1041,158,0.0
+1405,Inertial Stabilizers II,5.0,5.0,200.0,1086,1041,762,0.0
+1419,'Basic' Shield Power Relay,5.0,5.0,20.0,688,26450,57,0.0
+1422,Shield Power Relay II,5.0,5.0,20.0,688,26450,57,0.0
+1436,Auto Targeting System II,5.0,5.0,40.0,670,26721,96,0.0
+1445,Capacitor Power Relay I,5.0,5.0,20.0,667,26455,767,0.0
+1446,Capacitor Power Relay I Blueprint,0.01,0.01,0.0,1557,26455,137,0.0
+1447,Capacitor Power Relay II,5.0,5.0,20.0,667,26455,767,0.0
+1537,'Basic' Power Diagnostic System,5.0,5.0,20.0,658,26546,766,0.0
+1539,Power Diagnostic System I,5.0,5.0,20.0,658,26546,766,0.0
+1540,Power Diagnostic System I Blueprint,0.01,0.01,0.0,1560,26546,137,0.0
